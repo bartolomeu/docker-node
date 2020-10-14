@@ -5,9 +5,33 @@
   "author": "Bartolomeu S. Gusella <ccbarto@gmail.com>",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start_old": "node server.js",
+    "build": "tsc",
+    "lint": "eslint ./src --ext .ts",
+    "lint:fix": "eslint ./src --ext .ts --fix",
+    "start": "npm run-script build && node dist/index.js",
+    "start:dev": "ts-node-dev src/index.ts",
+    "test:func": "jest --projects ./test --forceExit --runInBand"
   },
   "dependencies": {
-    "express": "^4.16.1"
+    "@overnightjs/core": "^1.7.5",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/jest": "^26.0.13",
+    "@types/module-alias": "^2.0.0",
+    "@types/node": "^14.6.4",
+    "@types/supertest": "^2.0.10",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "eslint": "^7.8.1",
+    "jest": "^26.4.2",
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.3.0",
+    "ts-node-dev": "^1.0.0-pre.62",
+    "typescript": "^4.0.2"
   }
 }
